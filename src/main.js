@@ -10,7 +10,7 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import store from './store'
 import router from './router'
-import request from '@/utils/request'
+import axios from '@/utils/axios'
 
 import '@/icons' // icon
 import '@/permission' // permission control
@@ -18,7 +18,7 @@ import '@/permission' // permission control
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
 
-Vue.prototype.req = request
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 

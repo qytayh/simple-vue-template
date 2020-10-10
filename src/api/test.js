@@ -1,9 +1,8 @@
-import request from '@/utils/request'
+import axios from '@/utils/axios'
 
 export function getTableData(params) {
-  return request({
+  return axios.get({
     url: 'getTableData',
-    method: 'get',
     params
   })
 }

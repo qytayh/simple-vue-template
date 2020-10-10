@@ -23,19 +23,19 @@ export default {
       console.log("err :", err);
     });
     // 网络请求直接写在文件中
-    this.req({
-      url: "getTableData",
-      data: {},
-      method: "GET"
-    }).then(
-      res => {
-        console.log("tableData :", res);
-        this.tableData = res.data;
-      },
-      err => {
-        console.log("err :", err);
-      }
-    );
+    // this.req({
+    //   url: "getTableData",
+    //   data: {},
+    //   method: "GET"
+    // }).then(
+    //   res => {
+    //     console.log("tableData :", res);
+    //     this.tableData = res.data;
+    //   },
+    //   err => {
+    //     console.log("err :", err);
+    //   }
+    // );
   },
   methods: {}
 };

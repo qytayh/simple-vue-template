@@ -57,8 +57,8 @@
         @click.native.prevent="handleLogin"
       >登录</el-button>
     </el-form>
-    <div class="info" style="bottom: 40px;">Beta: 1.0</div>
-    <div class="info">Technical Support: XXX</div>
+    <!-- <div class="info" style="bottom: 40px;">Beta: 1.0</div>
+    <div class="info">Technical Support: XXX</div> -->
   </div>
 </template>
 
@@ -132,14 +132,11 @@ export default {
       });
       return 0;
       // 可自定义登录时的逻辑处理
-      this.req({
-        url: "login",
-        data: {
+      this.$axios.post(
+        "login",{
           account: that.loginForm.username,
           psw: md5(that.loginForm.password + "*/-sz") //对密码进行加盐md5处理
-        },
-        method: "POST"
-      }).then(
+        }).then(
         res => {
           console.log("res :", res);
           localStorage.setItem("hasLogin", true);

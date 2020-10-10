@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue+Element UI后台管理模板',
+  title: 'dxf后台管理',
 
   /**
    * @type {boolean} true | false
