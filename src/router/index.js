@@ -42,9 +42,9 @@ export const constantRoutes = [{
   },
   // 素材管理
   {
-    path: '/material',
+    path: '/dxf',
     component: Layout,
-    redirect: '/material/category',
+    redirect: '/dxf/category',
     meta: {
       title: 'dxf管理',
       icon: 'plane' 
@@ -53,19 +53,28 @@ export const constantRoutes = [{
       {
         path: 'category',
         name: 'category',
-        component: () => import('@/views/material/category'),
+        component: () => import('@/views/dxf/category'),
         meta: {
           title: '目录管理',
         }
       },
       {
+        path: 'glassSolution',
+        name: 'glassSolution',
+        component: () => import('@/views/dxf/glassSolution'),
+        meta: {
+          title: '玻璃方案管理',
+        }
+      },
+      {
         path: 'series',
         name: 'series',
-        component: () => import('@/views/material/series'),
+        component: () => import('@/views/dxf/series'),
         meta: {
           title: '系列管理',
         }
       },
+      
     ]
   },
 

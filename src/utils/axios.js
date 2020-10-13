@@ -21,26 +21,28 @@ axios.interceptors.request.use(
 // response interceptor
 axios.interceptors.response.use(
   response => {
-    const res = response.data
-    if (res.code !== 200) {
-      Message({
-        message: res.msg || 'Error check your token or method',
-        type: 'error',
-        duration: 2 * 1000
-      })
-      return Promise.reject(new Error(res.msg || 'Error'))
-    } else {
-      return res
-    }
+    // const res = response.data
+    // if (res.code !== 200) {
+    //   Message({
+    //     message: res.msg || 'Error check your token or method',
+    //     type: 'error',
+    //     duration: 2 * 1000
+    //   })
+      // return Promise.reject(new Error(res.msg || 'Error'))
+    // } else {
+    //   return res
+    // }
+    return response.data
   },
   error => {
     console.log('err' + error) // for debug
-    Message({
-      message: error.message,
-      type: 'error',
-      duration: 2 * 1000
-    })
-    return Promise.reject(error)
+    // Message({
+    //   message: error.message,
+    //   type: 'error',
+    //   duration: 2 * 1000
+    // })
+    // return Promise.reject(error)
+    return Promise.resolve(error.response);
   }
 )
 
