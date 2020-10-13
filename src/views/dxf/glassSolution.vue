@@ -42,7 +42,7 @@
       :close-on-press-escape='false'
       :show-close='false'
     >
-      <el-form ref="form" label-width="150px" :model="glassSolution">
+      <el-form ref="form" label-width="150px" :model="glassSolution" v-if="open_dialog">
         <el-row>
           <el-col :span="12" v-for="(v, i) in glassSettings" :key="i">
             <el-form-item
@@ -131,7 +131,7 @@
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="open_dialog =false;glassSolution={}">取消</el-button>
+        <el-button @click="open_dialog =false;glassSolution={};is_save=false">取消</el-button>
         <el-button type="primary" @click="submit" :loading="is_save">确定</el-button
         >
       </span>

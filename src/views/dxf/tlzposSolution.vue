@@ -31,7 +31,7 @@
       :close-on-press-escape='false'
       :show-close='false'
     >
-      <el-form ref="form" label-width="150px" :model="tlzposSolution">
+      <el-form ref="form" label-width="150px" :model="tlzposSolution" v-if="open_dialog">
         <el-row>
           <el-col :span="12">
             <el-form-item
@@ -83,7 +83,7 @@
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="open_dialog =false;tlzposSolution={}">取消</el-button>
+        <el-button @click="open_dialog =false;tlzposSolution={};is_save=false">取消</el-button>
         <el-button type="primary" @click="submit" :loading="is_save">确定</el-button
         >
       </span>
