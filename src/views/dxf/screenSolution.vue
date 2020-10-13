@@ -1,11 +1,11 @@
 <template>
   <div class="root">
     <div class="top-btn-area">
-      <el-button type="primary" @click="addGlassSolution"
-        >添加玻璃方案</el-button
+      <el-button type="primary" @click="addScreenSolution"
+        >添加纱网方案</el-button
       >
     </div>
-    <el-table :data="glassSolutionList" style="width:100%">
+    <el-table :data="screenSolutionList" style="width:100%">
       <el-table-column prop="name" label="名称"> </el-table-column>
       <el-table-column prop="fixedbasez" label="固玻的Z基础偏移值">
       </el-table-column>
@@ -25,39 +25,39 @@
       </el-table-column>
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
-          <el-button @click="editGlassSolution(scope.row)" type="text" size="small"
+          <el-button @click="editScreenSolution(scope.row)" type="text" size="small"
             >编辑</el-button
           >
-          <el-button type="text" size="small" @click="deleteGlassSolution(scope.row)"
+          <el-button type="text" size="small" @click="deleteScreenSolution(scope.row)"
             >删除</el-button
           >
         </template>
       </el-table-column>
     </el-table>
     <el-dialog
-      :title="glassSolution.id ? '编辑' : '添加'"
+      :title="screenSolution.id ? '编辑' : '添加'"
       :visible.sync="open_dialog"
       width="800px"
       :close-on-click-modal='false'
       :close-on-press-escape='false'
       :show-close='false'
     >
-      <el-form ref="form" label-width="150px" :model="glassSolution">
+      <el-form ref="form" label-width="150px" :model="screenSolution">
         <el-row>
-          <el-col :span="12" v-for="(v, i) in glassSettings" :key="i">
+          <el-col :span="12" v-for="(v, i) in screenSettings" :key="i">
             <el-form-item
               :label="v.label"
               :rules="[{ required: true, message: `必须填写${v.label}` }]"
               :prop="v.value"
             >
-              <el-input v-model="glassSolution[v.value]" :validate-event="false" ></el-input>
+              <el-input v-model="screenSolution[v.value]" :validate-event="false" ></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="固玻层数">
               <el-select
                 clearable
-                v-model="glassSolution.fixedlayer"
+                v-model="screenSolution.fixedlayer"
                 style="width: 230px"
                 @change="fixedlayerChange"
                 placeholder="请选择"
@@ -74,7 +74,7 @@
           </el-col>
           <el-col
             :span="12"
-            v-for="(item, i) in glassSolution.fixedposzarray"
+            v-for="(item, i) in screenSolution.fixedposzarray"
             :key="`${i}_fixedposzarray`"
           >
             <el-form-item
@@ -87,15 +87,15 @@
               ]"
               :prop="'fixedposzarray[' + i + ']'"
             >
-              <!-- {{glassSolution.fixedposzarray[i]}} -->
-              <el-input v-model="glassSolution.fixedposzarray[i]"></el-input>
+              <!-- {{screenSolution.fixedposzarray[i]}} -->
+              <el-input v-model="screenSolution.fixedposzarray[i]"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="扇玻层数">
               <el-select
                 clearable
-                v-model="glassSolution.leaflayer"
+                v-model="screenSolution.leaflayer"
                 style="width: 230px"
                 @change="leaflayerChange"
                 placeholder="请选择"
@@ -112,7 +112,7 @@
           </el-col>
           <el-col
             :span="12"
-            v-for="(item, i) in glassSolution.leafposzarray"
+            v-for="(item, i) in screenSolution.leafposzarray"
             :key="`${i}_leafposzarray`"
           >
             <el-form-item
@@ -125,13 +125,13 @@
               ]"
               :prop="'leafposzarray[' + i + ']'"
             >
-              <el-input v-model="glassSolution.leafposzarray[i]"></el-input>
+              <el-input v-model="screenSolution.leafposzarray[i]"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="open_dialog =false;glassSolution={}">取消</el-button>
+        <el-button @click="open_dialog =false;screenSolution={}">取消</el-button>
         <el-button type="primary" @click="submit" :loading="is_save">确定</el-button
         >
       </span>
@@ -144,9 +144,9 @@ export default {
   data: () => ({
     open_dialog: false,
     is_save: false,
-    glassSolution: {},
-    glassSolutionList: [],
-    glassSettings: [
+    screenSolution: {},
+    screenSolutionList: [],
+    screenSettings: [
       { label: "名称", value: "name" },
       { label: "固玻的Z基础偏移值", value: "fixedbasez" },
       { label: "固玻的厚度", value: "fixeddepthm" },
@@ -160,38 +160,38 @@ export default {
       for (let i = 0; i < val; i++) {
         arr.push("");
       }
-      this.$set(this.glassSolution, "fixedposzarray", arr);
+      this.$set(this.screenSolution, "fixedposzarray", arr);
     },
     leaflayerChange(val) {
       let arr = [];
       for (let i = 0; i < val; i++) {
         arr.push("");
       }
-      this.$set(this.glassSolution, "leafposzarray", arr);
+      this.$set(this.screenSolution, "leafposzarray", arr);
     },
-    addGlassSolution() {
+    addScreenSolution() {
       this.open_dialog = true;
     },
-    editGlassSolution(val){
-        this.glassSolution=val
-        this.glassSolution.fixedlayer=val.fixedposzarray.length
-        this.glassSolution.leaflayer=val.leafposzarray.length
+    editScreenSolution(val){
+        this.screenSolution=val
+        this.screenSolution.fixedlayer=val.fixedposzarray.length
+        this.screenSolution.leaflayer=val.leafposzarray.length
         this.open_dialog = true;
     },
-    deleteGlassSolution(val){
-        this.$confirm(`此操作将删除名为'${val.name}'的玻璃方案, 是否继续?`, "提示", {
+    deleteScreenSolution(val){
+        this.$confirm(`此操作将删除名为'${val.name}'的纱网方案, 是否继续?`, "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning",
       })
         .then(() => {
-          this.$axios.delete(`glass_plan/${val.id}`).then((res) => {
+          this.$axios.delete(`screen_plan/${val.id}`).then((res) => {
             if (res.code == 1) {
               this.$message({
                 type: "success",
                 message: res.message,
               });
-              this.getGlassSolution()
+              this.getScreenSolution()
             }else{
               this.$message.error(res.message)
             }
@@ -206,19 +206,19 @@ export default {
     },
     submit() {
       this.is_save = true;
-      if (!this.glassSolution.fixedlayer) {
+      if (!this.screenSolution.fixedlayer) {
         this.$message.error("请先选择固玻层数");
         this.is_save = false;
         return;
       }
-      if (!this.glassSolution.leaflayer) {
+      if (!this.screenSolution.leaflayer) {
         this.$message.error("请先选择扇玻层数");
         this.is_save = false;
         return;
       }
       this.$refs["form"].validate((valid) => {
         if (valid) {
-          this.$axios[this.glassSolution.id?'put':'post'](this.glassSolution.id?`glass_plan/${this.glassSolution.id}`:"glass_plan", this.glassSolution).then((res) => {
+          this.$axios[this.screenSolution.id?'put':'post'](this.screenSolution.id?`screen_plan/${this.screenSolution.id}`:"screen_plan", this.screenSolution).then((res) => {
             this.is_save = false;
             if (res.code == 1) {
               this.$message({
@@ -226,8 +226,8 @@ export default {
                 type: "success",
               });
               this.open_dialog = false;
-              this.glassSolution={};
-              this.getGlassSolution();
+              this.screenSolution={};
+              this.getScreenSolution();
             } else {
               this.$message.error(res.message);
             }
@@ -238,20 +238,20 @@ export default {
         }
       });
     },
-    getGlassSolution() {
-      this.$axios.get("glass_plan").then((res) => {
+    getScreenSolution() {
+      this.$axios.get("screen_plan").then((res) => {
         if (res.code == 1) {
             res.data.map(v=>{
                 v.fixedposzarray=v.fixedposzarray.split(",").filter(v=>v && v.trim())
                 v.leafposzarray=v.leafposzarray.split(",").filter(v=>v && v.trim())
             })
-          this.glassSolutionList = res.data;
+          this.screenSolutionList = res.data;
         }
       });
     },
   },
   mounted() {
-    this.getGlassSolution();
+    this.getScreenSolution();
   },
 };
 </script>

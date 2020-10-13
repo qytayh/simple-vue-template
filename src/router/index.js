@@ -67,6 +67,22 @@ export const constantRoutes = [{
         }
       },
       {
+        path: 'screenSolution',
+        name: 'screenSolution',
+        component: () => import('@/views/dxf/screenSolution'),
+        meta: {
+          title: '纱网方案管理',
+        }
+      },
+      {
+        path: 'tlzposSolution',
+        name: 'tlzposSolution',
+        component: () => import('@/views/dxf/tlzposSolution'),
+        meta: {
+          title: '轨道方案管理',
+        }
+      },
+      {
         path: 'series',
         name: 'series',
         component: () => import('@/views/dxf/series'),
