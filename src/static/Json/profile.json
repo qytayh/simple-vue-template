@@ -1,0 +1,242 @@
+{
+    "frame-group": {
+        "id": "10000",
+        "type": "frame-group",
+        "label": "框料-集合",
+        "song": [
+            {
+                "id": "10001",
+                "type": "framebar",
+                "label": "框料"
+            },
+            {
+                "id": "10002",
+                "type": "frameup",
+                "label": "上框料"
+            },
+            {
+                "id": "10003",
+                "type": "framedown",
+                "label": "下框料"
+            },
+            {
+                "id": "10004",
+                "type": "bf",
+                "label": "边封料"
+            },
+            {
+                "id": "10004",
+                "type": "bfleft",
+                "label": "左边封料"
+            },
+            {
+                "id": "10004",
+                "type": "bfright",
+                "label": "右边封料"
+            }
+        ]
+    },
+    "mullion-group": {
+        "id": "11000",
+        "type": "mullion-group",
+        "label": "梃料-集合",
+        "son": [
+            {
+                "id": "11001",
+                "type":"mullionbar",
+                "label":"梃料"
+            },
+            {
+                "id": "11002",
+                "type":"mullionupmove",
+                "label":"固上滑"
+            },
+            {
+                "id": "11003",
+                "type":"mulliondownmove",
+                "label":"固下滑"
+            },
+            {
+                "id": "11004",
+                "type":"mullionbarstreng",
+                "label":"加强梃"
+            }
+        ]
+    },
+    "sash-group":{
+        "id": "12000",
+        "type": "sash-group",
+        "label": "扇-集合",
+        "son": [
+            {
+                "id": "12001",
+                "type":"sashbar",
+                "label":"窗扇"
+            },
+            {
+                "id": "12002",
+                "type":"sashbarup",
+                "label":"窗扇上方"
+            },
+            {
+                "id": "12003",
+                "type":"sashbardown",
+                "label":"窗扇下方"
+            },
+            {
+                "id": "12004",
+                "type":"sashbarleft",
+                "label":"窗扇左方"
+            },
+            {
+                "id": "12005",
+                "type":"sashbarright",
+                "label":"窗扇右方"
+            },
+            {
+                "id": "12101",
+                "type":"screensashbar",
+                "label":"纱扇"
+            },
+            {
+                "id": "12102",
+                "type":"sashbarup",
+                "label":"纱扇上方"
+            },
+            {
+                "id": "12103",
+                "type":"sashbardown",
+                "label":"纱扇下方"
+            },
+            {
+                "id": "12104",
+                "type":"sashbarleft",
+                "label":"纱扇左方"
+            },
+            {
+                "id": "12105",
+                "type":"sashbarright",
+                "label":"纱扇右方"
+            }
+        ]
+    },
+    "sashyx-group":{
+        "id": "13000",
+        "type": "sashyx-group",
+        "label": "扇压线-集合",
+        "son": [
+            {
+                "id": "13001",
+                "type":"sashbaryx",
+                "label":"扇压线"
+            },
+            {
+                "id": "13002",
+                "type":"sashbarup",
+                "label":"扇压线上"
+            },
+            {
+                "id": "13003",
+                "type":"sashbardown",
+                "label":"扇压线下"
+            },
+            {
+                "id": "13004",
+                "type":"sashbarleft",
+                "label":"扇压线左"
+            },
+            {
+                "id": "13005",
+                "type":"sashbarright",
+                "label":"扇压线右"
+            },
+            {
+                "id": "13101",
+                "type":"screensashbaryx",
+                "label":"纱扇压线"
+            },
+            {
+                "id": "13102",
+                "type":"sashbarup",
+                "label":"纱扇压线上"
+            },
+            {
+                "id": "13103",
+                "type":"sashbardown",
+                "label":"纱扇压线下"
+            },
+            {
+                "id": "13104",
+                "type":"sashbarleft",
+                "label":"纱扇压线左"
+            },
+            {
+                "id": "13105",
+                "type":"sashbarright",
+                "label":"纱扇压线右"
+            }
+        ]
+    },
+    "other-group":{
+        "id": "80000",
+        "type": "other-group",
+        "label": "其他",
+        "son": [
+            {
+                "id":"81001",
+                "type":"glassyx",
+                "label":"固玻压线"
+            },
+            {
+                "id":"82001",
+                "type":"fdkframebar",
+                "label":"防盗框外框料"
+            },
+            {
+                "id": "82101",
+                "type":"fdkbar",
+                "label":"防盗框梃料"
+            },
+            {
+                "id": "83001",
+                "type":"gdup",
+                "label":"上轨道料"
+            },
+            {
+                "id":"83101",
+                "type":"gddownhigh",
+                "label":"下轨道料"
+            },
+            {
+                "id":"83102",
+                "type":"gddownhigh",
+                "label":"下轨道高轨料"
+            },
+            {
+                "id":"83103",
+                "type":"gddownlow",
+                "label":"下轨道低轨料"
+            },
+            {
+                "id":"84001",
+                "type":"turnbar",
+                "label":"转向框料"
+            },
+            {
+                "id":"85001",
+                "type":"squaretubebar",
+                "label":"方管料"
+            },
+            {
+                "id":"86001",
+                "type":"linkbar",
+                "label":"连接件"
+            },
+            {
+                "id":"87001",
+                "type":"cornerbar",
+                "label":"转角框"
+            }
+        ]
+    }
+}

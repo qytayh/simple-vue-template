@@ -96,7 +96,14 @@ export const constantRoutes = [{
           title: '系列管理',
         }
       },
-      
+      {
+        path: 'profile',
+        name: 'profile',
+        component: () => import('@/views/dxf/profile'),
+        meta: {
+          title: '材料管理',
+        }
+      },
     ]
   },
 

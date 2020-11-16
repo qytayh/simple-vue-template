@@ -10,6 +10,11 @@
           <div v-for="(v, i) in scope.row.tl_zposarray" :key="`${i}_tl_zposarray`">{{ v }}</div>
         </template>
       </el-table-column>
+      <el-table-column prop="sashposzwayList" label="扇偏移值">
+        <template slot-scope="scope">
+          <div v-for="(v, i) in scope.row.sashposzwayList" :key="`${i}_sashposzwayList`">轨道{{i}}扇偏移值：{{ v }}</div>
+        </template>
+      </el-table-column>
       <el-table-column label="操作" width="200">
         <template slot-scope="scope">
           <el-button
@@ -46,7 +51,7 @@
             <el-form-item
               label="名称"
               :rules="[{ required: true, message: `必须填写名称` }]"
-              :prop="name">
+              prop="name">
               <el-input
                 v-model="tlzposSolution.name"
                 :validate-event="false"
@@ -89,6 +94,24 @@
               <el-input v-model="tlzposSolution.tl_zposarray[i]"></el-input>
             </el-form-item>
           </el-col>
+          <el-col
+            :span="12"
+            v-for="(item, i) in tlzposSolution.sashposzwayList"
+            :key="`${i}_sashposzwayList`"
+          >
+            <el-form-item
+              :label="`轨道${i}_扇偏移值`"
+              :rules="[
+                {
+                  required: i==0?true:false,
+                  message: `必须填写轨道0_扇偏移值`,
+                },
+              ]"
+              :prop="'sashposzwayList[' + i + ']'"
+            >
+              <el-input v-model="tlzposSolution.sashposzwayList[i]" :validate-event="false"></el-input>
+            </el-form-item>
+          </el-col>
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -97,8 +120,7 @@
             open_dialog = false;
             tlzposSolution = {};
             is_save = false;
-          "
-          >取消</el-button
+          ">取消</el-button
         >
         <el-button type="primary" @click="submit" :loading="is_save"
           >确定</el-button
@@ -124,9 +146,9 @@ export default {
       }
       this.$set(this.tlzposSolution, "tl_zposarray", arr);
     },
-
     addTlzposSolution() {
       this.open_dialog = true;
+      this.$set(this.tlzposSolution,'sashposzwayList',['','','','',''])
     },
     editTlzposSolution(val) {
       this.tlzposSolution = val;
@@ -172,6 +194,7 @@ export default {
       }
       this.$refs["form"].validate((valid) => {
         if (valid) {
+          this.tlzposSolution.sashposzway=JSON.stringify(this.tlzposSolution.sashposzwayList)
           this.$axios[this.tlzposSolution.id ? "put" : "post"](
             this.tlzposSolution.id
               ? `tlzpos_plan/${this.tlzposSolution.id}`
@@ -204,6 +227,7 @@ export default {
             v.tl_zposarray = v.tl_zposarray
               .split(",")
               .filter((v) => v && v.trim());
+            v.sashposzwayList=JSON.parse(v.sashposzway)
           });
           this.tlzposSolutionList = res.data;
         }
