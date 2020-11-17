@@ -173,9 +173,9 @@ export default {
       this.open_dialog = true;
     },
     editGlassSolution(val){
-        this.glassSolution=val
-        this.glassSolution.fixedlayer=val.fixedposzarray.length
-        this.glassSolution.leaflayer=val.leafposzarray.length
+        this.glassSolution=JSON.parse(JSON.stringify(val))
+        this.glassSolution.fixedlayer=this.glassSolution.fixedposzarray.length
+        this.glassSolution.leaflayer=this.glassSolution.leafposzarray.length
         this.open_dialog = true;
     },
     deleteGlassSolution(val){

@@ -180,7 +180,7 @@ export default {
   }),
   methods: {
     editSeries(val) {
-      this.series = val;
+      this.series = JSON.parse(JSON.stringify(val));
       this.open_dialog = true;
     },
     deleteSeries(val) {

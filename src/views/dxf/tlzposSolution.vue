@@ -151,8 +151,8 @@ export default {
       this.$set(this.tlzposSolution,'sashposzwayList',['','','','',''])
     },
     editTlzposSolution(val) {
-      this.tlzposSolution = val;
-      this.tlzposSolution.fixedlatl_zposarraylayeryer = val.tl_zposarray.length;
+      this.tlzposSolution = JSON.parse(JSON.stringify(val));
+      this.tlzposSolution.tl_zposarraylayer = this.tlzposSolution.tl_zposarray.length;
       this.open_dialog = true;
     },
     deleteTlzposSolution(val) {

@@ -173,9 +173,9 @@ export default {
       this.open_dialog = true;
     },
     editScreenSolution(val){
-        this.screenSolution=val
-        this.screenSolution.fixedlayer=val.fixedposzarray.length
-        this.screenSolution.leaflayer=val.leafposzarray.length
+        this.screenSolution=JSON.parse(JSON.stringify(val))
+        this.screenSolution.fixedlayer=this.screenSolution.fixedposzarray.length
+        this.screenSolution.leaflayer=this.screenSolution.leafposzarray.length
         this.open_dialog = true;
     },
     deleteScreenSolution(val){
