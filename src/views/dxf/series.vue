@@ -19,6 +19,10 @@
         prop="tlzpos_plan_name"
         label="轨道方案"
       ></el-table-column>
+      <el-table-column
+          prop="addon_plan_name"
+          label="五金方案"
+      ></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button @click="editSeries(scope.row)" type="text" size="small"
@@ -140,6 +144,24 @@
               </el-select>
             </el-form-item>
           </el-col>
+          <el-col :span="12">
+            <el-form-item label="五金方案">
+              <el-select
+                  clearable
+                  v-model="series.addon_plan_id"
+                  style="width: 230px"
+                  placeholder="请选择"
+              >
+                <el-option
+                    v-for="(v, i) in hardware_solution_list"
+                    :key="i"
+                    :label="v.name"
+                    :value="v.id"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -163,6 +185,7 @@ export default {
     category_list: [],
     screenSolutionList: [],
     tlzposSolutionList: [],
+    hardware_solution_list: [],
     serie_type_list: [
       {
         label: "平开",
@@ -262,6 +285,11 @@ export default {
           })[0]?this.tlzposSolutionList.filter((item) => {
             return item.id == v.tlzpos_plan_id;
           })[0].name:'';
+          v.addon_plan_name = this.hardware_solution_list.filter((item) => {
+            return item.id == v.addon_plan_id;
+          })[0]?this.hardware_solution_list.filter((item) => {
+            return item.id == v.addon_plan_id;
+          })[0].name:'';
         });
         this.seriesList = res.data;
       });
@@ -313,6 +341,12 @@ export default {
         }
       });
     },
+    /** 获取五金方案列表 **/
+    getHardwareSolution() {
+      return this.$axios.get("addon_plan").then((res) => {
+        if (res.code == 1) this.hardware_solution_list = res.data;
+      });
+    },
     serie_type_change(val) {
       let arr=this.serie_type_list.filter((v) => {
         return v.value == val;
@@ -349,6 +383,7 @@ export default {
     await this.getGlassSolution();
     await this.getScreenSolution();
     await this.getTlzposSolution();
+    await this.getHardwareSolution();
     await this.getSeriesList();
   },
 };
