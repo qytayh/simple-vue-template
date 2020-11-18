@@ -104,6 +104,14 @@ export const constantRoutes = [{
           title: '材料管理',
         }
       },
+      {
+        path: 'hardwareSolution',
+        name: 'hardwareSolution',
+        component: () => import('@/views/dxf/hardwareSolution'),
+        meta: {
+          title: '五金管理',
+        }
+      },
     ]
   },
 
