@@ -43,75 +43,76 @@ export const constantRoutes = [{
    {
     path: '/',
     component: Layout,
-    redirect: '/dxf',
+    redirect: '/xxx',
     hidden: true
   },
   // 素材管理
   {
-    path: '/dxf',
+    path: '/xxx',
     component: Layout,
-    redirect: '/dxf/category',
+    redirect: '/xxx/aaa',
     meta: {
-      title: 'dxf管理',
+      title: 'xxx管理',
       icon: 'plane' 
     },
     children: [
       {
-        path: 'category',
-        name: 'category',
-        component: () => import('@/views/dxf/category'),
+        path: 'aaa',
+        name: 'aaa',
+        component: () => import('@/views/xxx/aaa'),
         meta: {
-          title: '目录管理',
+          title: 'aaaaaa',
         }
       },
       {
-        path: 'glassSolution',
-        name: 'glassSolution',
-        component: () => import('@/views/dxf/glassSolution'),
+        path: 'bbb',
+        name: 'bbb',
+        component: () => import('@/views/xxx/bbb'),
         meta: {
-          title: '玻璃方案管理',
+          title: 'bbbbbb',
         }
       },
       {
-        path: 'screenSolution',
-        name: 'screenSolution',
-        component: () => import('@/views/dxf/screenSolution'),
+        path: 'ccc',
+        name: 'ccc',
+        component: () => import('@/views/xxx/ccc'),
         meta: {
-          title: '纱网方案管理',
+          title: 'ccccccccc',
         }
       },
       {
-        path: 'tlzposSolution',
-        name: 'tlzposSolution',
-        component: () => import('@/views/dxf/tlzposSolution'),
+        path: 'ddd',
+        name: 'ddd',
+        component: () => import('@/views/xxx/ddd'),
         meta: {
-          title: '轨道方案管理',
+          title: 'ddddddd',
         }
       },
       {
-        path: 'series',
-        name: 'series',
-        component: () => import('@/views/dxf/series'),
+        path: 'eee',
+        name: 'eee',
+        component: () => import('@/views/xxx/eee'),
         meta: {
-          title: '系列管理',
+          title: 'eeeeeeeee',
         }
       },
       {
-        path: 'profile',
-        name: 'profile',
-        component: () => import('@/views/dxf/profile'),
+        path: 'fff',
+        name: 'fff',
+        component: () => import('@/views/xxx/fff'),
         meta: {
-          title: '材料管理',
+          title: 'ffffff',
         }
       },
       {
-        path: 'hardwareSolution',
-        name: 'hardwareSolution',
-        component: () => import('@/views/dxf/hardwareSolution'),
+        path: 'ggg',
+        name: 'ggg',
+        component: () => import('@/views/xxx/ggg'),
         meta: {
-          title: '五金管理',
+          title: 'ggggggg',
         }
       },
+      
     ]
   },
 

@@ -17,6 +17,7 @@ router.beforeEach(async(to, from, next) => {
 
   // determine whether the user has logged in
   const hasLogin = localStorage.getItem('hasLogin')
+  //判断是否登录   可以替换为验证token
   if (hasLogin) {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
